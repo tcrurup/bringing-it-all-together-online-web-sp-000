@@ -60,7 +60,7 @@ class Dog
       WHERE dogs.name = ?
     SQL
     
-    result = DB[:conn].prepare(sql).execute(name)
+    result = DB[:conn].prepare(sql).execute(name).map{ |x| self.
     binding.pry
   end
   
