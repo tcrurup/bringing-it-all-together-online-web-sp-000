@@ -22,7 +22,13 @@ class Dog
   end
   
   def update
+    sql = <<-SQL
+      UPDATE dogs
+      SET name = ?, breed = ?
+      WHERE id = ?
+    SQL
     
+    DB[:conn].prepare(sql).
   end
   
   def self.create(name:, breed:)
