@@ -28,7 +28,7 @@ class Dog
       WHERE id = ?
     SQL
     
-    DB[:conn].prepare(sql).
+    DB[:conn].prepare(sql).execute(self.name, self.breed, self.id)
   end
   
   def self.create(name:, breed:)
