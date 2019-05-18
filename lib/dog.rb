@@ -16,6 +16,7 @@ class Dog
         breed TEXT
       )
     SQL
+    DB[:conn]
   end
     
 end
