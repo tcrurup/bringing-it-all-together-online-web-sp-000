@@ -53,8 +53,8 @@ class Dog
     self.new(id: result[0], name: result[1], breed: result[2])
   end
   
-  def self.find_or_create_by()
-      
+  def self.find_or_create_by(name:, breed:)
+    DB[:conn].execute
   end
     
 end
