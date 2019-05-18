@@ -10,7 +10,7 @@ class Dog
   end
   
   def save
-    if self.id != nil
+    if self.id == nil
       sql = <<-SQL
         INSERT INTO dogs(name, breed)
         VALUES(?, ?)
