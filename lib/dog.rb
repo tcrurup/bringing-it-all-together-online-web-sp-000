@@ -8,6 +8,16 @@ class Dog
     @breed = breed
   end
   
+  def save
+    sql = <<-SQL
+      INSERT INTO dogs(name, breed)
+      VALUES(?, ?)
+    SQL
+    DB[:conn].prepare(sql).execute(self.name, self.breed)
+    
+    @id = 
+  end
+  
   def self.create_table
     sql = <<-SQL
       CREATE TABLE IF NOT EXISTS dogs(
