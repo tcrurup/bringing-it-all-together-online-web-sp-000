@@ -49,8 +49,7 @@ class Dog
       FROM dogs
       WHERE id = ?
     SQL
-    result = DB[:conn].execute(sql, id)[0]
-    self.new_from_db(result)
+    result = DB[:conn].prepare(sql).execute(id).map{ |x| self.new_from_db(x) }[0]
   end
   
   def self.find_by_name(name)
