@@ -49,7 +49,7 @@ class Dog
       FROM dogs
       WHERE id = ?
     SQL
-    result = DB[:conn].prepare(sql).execute(id)
+    result = DB[:conn].execute(sql, id)
     binding.pry
     self.new(id: result[0], name: result[1], breed: result[2])
   end
